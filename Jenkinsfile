@@ -18,5 +18,14 @@ pipeline {
             }
         }
         stage('dockerimage')
+        {
+            steps {
+                sh 'echo "docker image stage"'
+               echo "docker image pushed successfully"
+                }
+            }
+        }
+
         
     }
+    
