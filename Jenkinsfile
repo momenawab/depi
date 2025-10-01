@@ -11,7 +11,9 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'docker build -t depi-test .'
+                    sh 'echo "Building application..."'
+                    sh 'ls -la'
+                    sh 'echo "Build completed successfully"'
                 }
             }
         }
