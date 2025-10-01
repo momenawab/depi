@@ -11,9 +11,9 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'echo "Building application..."'
-                    sh 'ls -la'
-                    sh 'echo "Build completed successfully"'
+                    sh 'echo "Building Docker image..."'
+                    sh 'docker build -t depi-test .'
+                    sh 'echo "Docker image built successfully"'
                 }
             }
         }
@@ -25,8 +25,11 @@ pipeline {
         stage('dockerimage')
         {
             steps {
-                sh 'echo "docker image stage"'
-               echo "docker image pushed successfully"
+                script {
+                    sh 'docker images | grep depi-test'
+                    sh 'echo "Docker image available for deployment"'
+                }
+                echo "docker image pushed successfully"
                 }
             }
         }
