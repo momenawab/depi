@@ -1,3 +1,5 @@
+
+
 pipeline {
     agent any
     environment {
@@ -9,7 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    docker.build("depi-test")
+                    sh 'docker build -t depi-test .'
                 }
             }
         }
